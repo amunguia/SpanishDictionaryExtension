@@ -48,6 +48,10 @@ angular.module('translateApp', ['ui.bootstrap']).
             }
         }
 
+        $scope.numItems = function() {
+            return storageService.numItems();
+        }
+
         $scope.previousTerm = function() {
             $scope.translate.nextStack.push($scope.translate.reviewDef)
             $scope.translate.reviewDef = $scope.translate.previousStack.pop();

@@ -53,7 +53,7 @@
         
         </div>
  
-        <button ng-click="beginReview()"
+        <button ng-click="beginReview()" ng-hide="numItems() == 0"
                 class="btn btn-md btn-primary bottom-button review-button">
                 {{translate.reviewText}}
         </button>
