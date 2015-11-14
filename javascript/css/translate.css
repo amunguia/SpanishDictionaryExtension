@@ -1,0 +1,79 @@
+body {
+    width: 500px;
+    font-size: 1.4em;
+    background-color: #063;
+}
+h1 {
+    font-size: 1.8em;
+    color: #fff;
+}
+.centered-text {
+    text-align: center;
+}
+.prompt {
+    font-size: 1.2em;
+}
+.translate-form {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    background-color: #ab9;
+}
+.translate-form input, .translate-form button {
+    margin-left: 10px;
+}
+.translate-form button {
+    background-color: #13b;
+}
+.definitions-list {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    list-style: none;
+}
+.definitions {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #ab9;
+    border-radius: 5px;
+}
+.def-pos {
+    margin-left: 15px;
+}
+.definition-header {
+    font-size: 1.6em;
+    margin-left: 15px;
+}
+.bottom-button {
+    display: inline-block;
+    float: right;
+    margin: 10px 20px 10px 10px;
+    background-color: #13b;
+    color: #fff;    
+}
+.review-div {
+    margin-top: 25px;
+}
+.review-term {
+    margin-bottom: 20px;
+    margin-left: 5%;
+    margin-right: 5%;
+    background-color: #13b;
+    font-size: 1.3em;
+    width: 90%;
+}
+.error {
+    color: red;
+}
+
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+.ng-cloak, .x-ng-cloak,
+.ng-hide {
+  display: none !important;
+}
+
+ng\:form {
+  display: block;
+}

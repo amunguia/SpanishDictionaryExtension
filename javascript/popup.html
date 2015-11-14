@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/translate.css">
+  </head>
+  <body ng-app="translateApp" class="app">
+    <h1 class="centered-text">Spanish -> English</h1>
+    <div ng-controller="translateController">
+         
+         <div ng-if="!translate.review">
+            <div class="translate-form">
+                <p class="error centered-text">{{ translate.error }} </p>
+                <div class="centered-text">
+                    <span class="prompt">Enter Spanish Word:</span>
+                    <input type="text" ng-model="translate.term"
+                           ng-keypress="isEnter($event)"></input>
+                </div>
+            </div>
+
+            <div ng-show="definitions.data.length > 0">
+                <h2 class="definition-header">Definitions</h2>
+            </div>
+
+            <ul class="definitions-list">
+                <li ng-repeat="def in translate.definitions track by $index"
+                     class="definitions">
+                    <strong><span class="def-term">{{def.term}}</span></strong>
+                    <em><span class="def-pos">({{def.pos}})</span></em><br />
+                    <span class="def-definition">{{def.definition}}</span>
+                </li>
+            </ul>
+        </div>
+        
+        <div ng-if="translate.review"
+             class="review-div">
+            
+            <button class="btn btn-md btn-primary review-term glyphicon {{ translate.isCollapsed ? 'glyphicon-menu-down' : 'glyphicon-menu-up' }}"
+                    ng-click="translate.isCollapsed = !translate.isCollapsed">
+                <span class="centered-text">{{ translate.reviewDef.term }} </span>
+            </button>
+            
+            <div class="definitions-list" collapse="translate.isCollapsed">
+                <ul class="definitions-list">
+                    <li ng-repeat="definition in translate.reviewDef.definition  track by $index"
+                         class="definitions">
+                        <strong><span class="def-term">{{definition.term}}</span></strong>
+                        <em><span class="def-pos">({{definition.pos}})</span></em><br />
+                        <span class="def-definition">{{definition.definition}}</span>
+                    </li>
+                </ul> 
+            </div> 
+        
+        </div>
+ 
+        <button ng-click="beginReview()"
+                class="btn btn-md btn-primary bottom-button review-button">
+                {{translate.reviewText}}
+        </button>
+
+        <button ng-click="save()" 
+                class="btn btn-md bottom-button save-button"
+                ng-show="translate.canSave">
+                Save
+        </button>
+
+        <button ng-click="nextTerm()"
+                ng-show="translate.review"
+                class="btn btn-md btn-primary bottom-button next-button">
+                Next
+        </button>
+
+        <button ng-click="previousTerm()"
+                ng-show="translate.review && translate.previousStack.length > 0"
+                class="btn btn-md btn-primary bottom-button next-button">
+                Previous
+        </button>
+
+    </div>
+    <script src="js/lib/angular.js"></script>
+    <script src="js/lib/ui-bootstrap-tpls-0.13.3.min.js"></script>
+    <script src="js/app/translateApp.js"></script>
+    <script src="js/app/translateService.js"></script>
+    <script src="js/app/storageService.js"></script>
+    <script src="js/app/reviewService.js"></script>
+  </body>
+</html>

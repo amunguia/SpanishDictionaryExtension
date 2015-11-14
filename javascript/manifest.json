@@ -1,0 +1,14 @@
+{
+    "name": "Spanish Translator",
+    "version": "0.1",
+    "manifest_version": 2,
+    "description": "Looks up english translation of spanish words. Saves words on request which can later be scrolled through like a flashcard.",
+
+    "browser_action": {
+        "default_icon": "spainflag.png",
+        "default_popup": "popup.html"
+    },
+
+    "permissions": ["https://protected-falls-9997.herokuapp.com/", "storage", "unlimitedStorage"]
+
+}
